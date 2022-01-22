@@ -44,6 +44,6 @@ require (
 	go.uber.org/zap v1.10.0 // indirect
 	golang.org/x/crypto v0.0.0-20211215165025-cf75a172585e // indirect
 	golang.org/x/net v0.0.0-20210917221730-978cfadd31cf // indirect
-	golang.org/x/sys v0.0.0-20210809222454-d867a43fc93e // indirect
+	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
 	gopkg.in/yaml.v2 v2.3.0 // indirect
 )
