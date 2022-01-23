@@ -1,6 +1,7 @@
 import { Order, OrderProduct } from "~domain/model"
 import { v4 as uuidV4 } from "uuid"
 import { CloudEvent, CONSTANTS, HTTP } from "cloudevents"
+import { replaceCEDash } from "./replaceCEDash"
 
 function mapProducts(order: Order): CloudEvent<OrderProduct>[] {
   return order.products.map((product) => {
@@ -11,7 +12,7 @@ function mapProducts(order: Order): CloudEvent<OrderProduct>[] {
       "ce-id": uuidV4(),
       "ce-time": new Date().toISOString(),
       "Content-Type": CONSTANTS.MIME_JSON,
-      "ce-destination": "order_products",
+      "ce-destination": "orders",
     }
 
     const productData = {
@@ -20,7 +21,7 @@ function mapProducts(order: Order): CloudEvent<OrderProduct>[] {
     }
 
     const data = {
-      ...attributes,
+      ...replaceCEDash(attributes),
       ...productData,
     }
 
@@ -52,7 +53,7 @@ export function mapOrderToEvents(
   }
 
   const data = {
-    ...attributes,
+    ...replaceCEDash(attributes),
     ...orderData,
   }
 
