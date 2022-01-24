@@ -17,7 +17,7 @@ const kafka = new Kafka({
   },
 })
 
-const producer = kafka.producer()
+const producer = kafka.producer({ idempotent: true })
 
 export async function run(message: Message) {
   await producer.connect()
