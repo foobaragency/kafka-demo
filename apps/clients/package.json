@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "node -r dotenv/config src/index"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^14.3.2",
+    "uuid": "^8.3.2"
+  }
+}
